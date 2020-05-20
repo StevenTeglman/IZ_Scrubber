@@ -235,8 +235,8 @@ def updatetime():
     print('[*] Program started: ' + timestartedformated)
     print('[*] Total Run Time: ' + str(totaltime))
 
-
-driver = webdriver.Chrome("D:\\Coding\\Python\\IZ_Scrubber\\chromedriver_win32\\chromedriver.exe")
+cur_directory = os.getcwd();
+driver = webdriver.Chrome(cur_directory+"\\chromedriver_win32\\chromedriver.exe")
 
 # Starts up the IZ website, and then logs in
 print('[*] Navigating to the startup page...')
