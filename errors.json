@@ -1,0 +1,43 @@
+{
+  "hardfails": [
+    "Last error was '(800.100.165) transaction declined (card lost)'",
+    "Last error was '(800.100.171) transaction declined (pick up card)'",
+    "Last error was '(card_declined) The card was declined.'",
+    "Last error was '(800.100.160) transaction declined (card blocked)'",
+    "Last error was '(900.900.500.221) Transaction declined by clearinghouse'",
+    "Last error was '(800.100.174) transaction declined (invalid amount)'",
+    "Last error was '(800.100.170) transaction declined (transaction not permitted)'",
+    "Last error was '(800.100.159) transaction declined (stolen card)'",
+    "Last error was '(800.100.168) transaction declined (restricted card)'",
+    "Last error was '(700.900.500.221) Transaction declined'",
+    "Last error was '(900.100.300) timeout, uncertain result'",
+    "Last error was '(700.900.500.412) Transaction already declined'",
+    "Last error was '(700.900.500.421) Transaction not possible'",
+    "Last error was '(900.100.400) timeout at connectors'",
+    "Last error was '(900.950.400.644) Fraud: Credit card stolen'",
+    "Last error was '(800.100.151) transaction declined (invalid card)'",
+	"Last error was '(800.500.110) Unable to process transaction - ran out of terminalIds - please contact acquirer'",
+	"Last error was '(900.100.203) error on the internal gateway'",
+	"Last error was '(800.100.157) transaction declined (wrong expiry date)'",
+    "(Creditcard no longer valid)"
+  ],
+  "softfails": [
+    "Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit'",
+    "Last error was '(800.100.162) transaction declined (limit exceeded)'",
+    "Last error was '(800.100.155) transaction declined (amount exceeds credit)'",
+    "Last error was '(800.100.152) transaction declined by authorization system'",
+    "Last error was '(900.900.500.441) Insufficient funds'",
+	"Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit.'"
+  ],
+  "prepaid": [
+    "PREPAID",
+    "RELOADABLE",
+    "MASTERCARD, PREPAID RELOADABLE, DEBIT",
+    "VISA, PREPAID, DEBIT"
+  ],
+  "ipblocklist": [
+    "1. IP has been detected as an anonymous web proxy or anonymous HTTP proxy.\n\t2. IP has been detected as an anonymous web proxy or anonymous HTTP proxy.",
+    "1. IP is hosting a malicious bot or is part of a botnet. Includes brute-force crackers.",
+    "1. IP belongs to a VPN provider or has been detected as hosting a VPN service."
+  ]
+}
