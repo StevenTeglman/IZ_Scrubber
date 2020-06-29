@@ -1,9 +1,10 @@
 # This is the main business logic. In the end, this method will
-# return one of three results
+# return one of four results
+# 4 = Hard Fail with CC Quarantine
 # 3 = Hard Fail
 # 2 = Soft Fail
-# 1 = unsure/skip
-# 0 = pass
+# 1 = Unsure/Skip
+# 0 = Pass
 import json
 
 data = {}
@@ -77,7 +78,10 @@ def subscriptionstatus(validationdic):
     boxmessage = validationdic['subscriptionstatus']['Message']
     if not boxstatus:
         status = 1
-        if [ele for ele in data["hardfails"] if(ele in boxmessage)]:
+        if [ele for ele in data["quarantine"] if(ele in boxmessage)]:
+            print('[!] SHIFTY CARD DETECTED: %s' % boxmessage)
+            return 4
+        elif [ele for ele in data["hardfails"] if(ele in boxmessage)]:
             print('[!] CC HARD FAIL: %s' % boxmessage)
             return 3
         elif [ele for ele in data["softfails"] if(ele in boxmessage)]:

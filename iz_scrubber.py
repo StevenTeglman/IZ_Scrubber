@@ -6,6 +6,7 @@ from selenium import webdriver
 import time
 from datetime import datetime, timedelta
 from tabulate import tabulate
+from pip._vendor.distlib.compat import raw_input
 import helpers
 
 # Define variables...
@@ -182,6 +183,19 @@ def denybutton():
     driver.find_element_by_xpath(
         "//*[@id='decline-modal']/div/form/div/div[3]/button[2]").click()
 
+
+def quarantinebutton():
+    driver.find_element_by_xpath(
+        "//*[@id='master-content']/div[3]/a[2]").click()
+    time.sleep(0.3)
+    driver.find_element_by_name("quarantine_cc").click()
+    # print("[?] Safety stop. Should this one be quarantined? If not, stop this and fix your shit, Stevo.")
+    # foo = raw_input()
+
+    driver.find_element_by_xpath(
+        "//*[@id='decline-modal']/div/form/div/div[3]/button[2]").click()
+
+
 # clicks the skip button.
 
 
@@ -232,7 +246,11 @@ def userinput():
 
 
 def verdict(number):
-    if totalriskscore >= 110:
+    if number == 4:
+        print("[!] Fradulant card detected. Recommend 'Deny' and Quarantine.")
+        quarantinebutton()
+        return
+    elif totalriskscore >= 110:
         print("[!] Hard fail based on risk score. Recommend 'Deny'.")
         denybutton()
         return

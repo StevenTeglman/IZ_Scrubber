@@ -1,4 +1,15 @@
 {
+  "quarantine": [
+    "Last error was '(800.100.165) transaction declined (card lost)'",
+    "Last error was '(800.100.171) transaction declined (pick up card)'",
+    "Last error was '(800.100.160) transaction declined (card blocked)'",
+    "Last error was '(900.900.500.221) Transaction declined by clearinghouse'",
+    "Last error was '(800.100.159) transaction declined (stolen card)'",
+    "Last error was '(800.100.168) transaction declined (restricted card)'",
+    "Last error was '(900.950.400.644) Fraud: Credit card stolen'",
+    "Last error was '(800.100.157) transaction declined (wrong expiry date)'",
+    "(Creditcard no longer valid)"
+  ],
   "hardfails": [
     "Last error was '(800.100.165) transaction declined (card lost)'",
     "Last error was '(800.100.171) transaction declined (pick up card)'",
