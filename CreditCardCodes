@@ -1,5 +1,7 @@
 https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner=&microsite=&bin=&last_4_digits=&address=&date_from=2020-03-01&date_to=2020-03-16&concept=&screening_status=pending&sortby=id-asc
 
+IZ Password: 123123123
+
 #Credit Card Codes:
 • Last error was '(800.100.165) transaction declined (card lost)
 • Last error was '(800.100.171) transaction declined (pick up card)
@@ -18,6 +20,7 @@ https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner
 • Last error was '(900.950.400.644) Fraud: Credit card stolen
 • Last error was '(800.100.151) transaction declined (invalid card)
 • (Creditcard no longer valid).
+• Last error was '(800.500.110) Unable to process transaction - ran out of terminalIds - please contact acquirer'.
 
 
 • Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit
@@ -39,68 +42,6 @@ https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner
 • 	1. IP is hosting a malicious bot or is part of a botnet. Includes brute-force crackers.
 
 • 	1. IP belongs to a VPN provider or has been detected as hosting a VPN service.
-
-
-
-
-
-# History
-
-06/04/2020
-----------
-
-[*] Program started: 11:15:12
-[*] Total Run Time: 3:52:58.643000
-[*] Customers scrubbed: 1723
-
-07/04/2020
-----------
-
-[*] Program started: 09:20:58
-[*] Total Run Time: 1:22:33.893000
-[*] Customers scrubbed: 681
-
-+
-
-[*] Program started: 10:45:35
-[*] Total Run Time: 0:30:17.356000
-[*] Customers scrubbed: 221
-
-TC40 : 9:42 - 14:14
-
-08/04/2020
-----------
-
-[*] Program started: 10:11:44
-[*] Total Run Time: 1:10:57.447000
-[*] Customers scrubbed: 523
-
-TC40 : 8:46 - 11:59
-
-09/04/2020
-----------
-
-[*] Program started: 11:32:37
-[*] Total Run Time: 0:46:55.635000
-[*] Customers scrubbed: 335
-
-+TC40: 10:39-12:28
-
-10/04/2020
-----------
-
-[*] Program started: 10:37:15
-[*] Total Run Time: 0:39:09.501000
-[*] Customers scrubbed: 273
-
-TC40: 11:10-12:36 total
-
-13/04/2020
-----------
-
-[*] Program started: 13:10:15
-[*] Total Run Time: 4:17:36.576000
-[*] Customers scrubbed: 1789
 
 # Exception:
 Traceback (most recent call last):

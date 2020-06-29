@@ -22,20 +22,26 @@ timestartedformated = now.strftime("%H:%M:%S")
 timescrubbed = now.strftime("%H:%M:%S")
 
 # Updates the current risk score for the selected customer
+
+
 def updateriskscore():
     global totalriskscore
     try:
-        risktext = driver.find_element_by_xpath("//*[@id='master-content']/div[2]/div[2]/div[6]").text
+        risktext = driver.find_element_by_xpath(
+            "//*[@id='master-content']/div[2]/div[2]/div[6]").text
         totalriskscore = int(risktext[1:])
         print("[*] Risk Score: " + str(totalriskscore))
     except:
         try:
-            risktext = driver.find_element_by_xpath("//*[@id='master-content']/div[2]/div[2]/div[2]").text
+            risktext = driver.find_element_by_xpath(
+                "//*[@id='master-content']/div[2]/div[2]/div[2]").text
             totalriskscore = int(risktext[1:])
         except:
             skipbutton()
 
 # Just navigates to the scrubbing, and inputs the corrects dates based on today's date.
+
+
 def navigatetoscrubbingwindow():
     # Find current month
     fda = timedelta(days=5)
@@ -45,27 +51,35 @@ def navigatetoscrubbingwindow():
     todayrange = today - fda
     datem = str(datetime(todayrange.year, lastMonth.month, 1))
     curmonth = datem[0:10]
-    print("[?] Current month: %r" %(curmonth))
+    print("[?] Current month: %r" % (curmonth))
+    # If you wanna put in a certain date:
+    # curmonth = "2020-05-31"
 
     # Find date five days ago
     fivedaysagodate = str(today - fda)
     fivedaysagodate = fivedaysagodate[0:10]
-    print("[?] Date five days go: %r" %(fivedaysagodate))
+    print("[?] Date five days go: %r" % (fivedaysagodate))
+    # If you wanna put in a certain date:
+    # fivedaysagodate = "2020-05-31"
 
-    filterURL = "https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner=&microsite=&bin=&last_4_digits=&address=&date_from=%s&date_to=%s&concept=&screening_status=pending&sortby=id-asc" % (curmonth, fivedaysagodate)
+    filterURL = "https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner=&microsite=&bin=&last_4_digits=&address=&date_from=%s&date_to=%s&concept=&screening_status=pending&sortby=id-asc" % (
+        curmonth, fivedaysagodate)
     return filterURL
 
 # Goes through each of the 8 validation boxes, takes the data from each one, and inputs it into two dictionaries:
 # 'validationboxeslist' is only used to later give a visual representation in the console of the status of each validation box
 # 'validationdic' is a dictionary filled with the current customers information, which will later be passed into the
 # 'helpers.py' file to be processed.
+
+
 def validationboxescheck():
     global validationdic
     global validationboxeslist
     validationboxeslist = []
     validationdic = {}
 
-    customerID = driver.find_element_by_xpath("//*[@id='master-content']/table/tbody/tr[2]/td[1]/a")
+    customerID = driver.find_element_by_xpath(
+        "//*[@id='master-content']/table/tbody/tr[2]/td[1]/a")
     validationboxeslist.append(["CustomerID", customerID.text])
 
     issuerhealth = str(
@@ -73,7 +87,7 @@ def validationboxescheck():
             "class"))
     status = validationcheck(issuerhealth)
     validationboxeslist.append(["issuerhealth", status])
-    validationdic.update({'issuerhealth' : {'Status': status, 'Message': driver.find_element_by_xpath(
+    validationdic.update({'issuerhealth': {'Status': status, 'Message': driver.find_element_by_xpath(
         "//*[@id='master-content']/div[2]/div[1]/div/div[1]/div/dl/dd").text}})
     # print("issuerhealth: " + issuerhealth)
 
@@ -141,6 +155,8 @@ def validationboxescheck():
     # print("ipblocklistcheck: " + ipblocklistcheck)
 
 # Checks if a validation box is red or green, ergo checking the status
+
+
 def validationcheck(value):
     if value == 'fa fa-check':
         return True
@@ -148,21 +164,35 @@ def validationcheck(value):
         return False
 
 # clicks the approve button.
+
+
 def approvebutton():
-    driver.find_element_by_xpath("//*[@id='master-content']/div[3]/a[1]").click()
+    driver.find_element_by_xpath(
+        "//*[@id='master-content']/div[3]/a[1]").click()
 
 # clicks the deny button.
+
+# TODO Need to incorporate the block function to IP and Stolen CC
+
+
 def denybutton():
-    driver.find_element_by_xpath("//*[@id='master-content']/div[3]/a[2]").click()
+    driver.find_element_by_xpath(
+        "//*[@id='master-content']/div[3]/a[2]").click()
     time.sleep(0.3)
-    driver.find_element_by_xpath("//*[@id='decline-modal']/div/form/div/div[3]/button[2]").click()
+    driver.find_element_by_xpath(
+        "//*[@id='decline-modal']/div/form/div/div[3]/button[2]").click()
 
 # clicks the skip button.
+
+
 def skipbutton():
-    driver.find_element_by_xpath("//*[@id='master-content']/div[3]/a[3]").click()
+    driver.find_element_by_xpath(
+        "//*[@id='master-content']/div[3]/a[3]").click()
 
 # FOR TESTING. If you comment out the 'button' definition calls in the 'verdict(number)' definition, and uncomment the
 # userinput() in the 'while(running)' loop. Then you can manually input approves and fails with 1,2,3,4
+
+
 def userinput():
     # raw_input returns the empty string for "enter"
     print('\n[!] Please enter one of the following numbers:'
@@ -170,8 +200,8 @@ def userinput():
           '\n    2 = Deny'
           '\n    3 = Skip'
           '\n    4 = Exit Program')
-    approve = {'1','yes', 'y', 'ye', ''}
-    deny = {'2','no', 'n'}
+    approve = {'1', 'yes', 'y', 'ye', ''}
+    deny = {'2', 'no', 'n'}
     skip = {'3', 'skip'}
     stop = {'4', 'stop'}
 
@@ -199,6 +229,8 @@ def userinput():
 # if the number is 1, one of the validation boxes was red, yet the error message was one we do not recognize. The program
 # skips this customer for a human (me) to deal with later
 # if the number is 0, and none of the other parameters are met, the customer is approved.
+
+
 def verdict(number):
     if totalriskscore >= 110:
         print("[!] Hard fail based on risk score. Recommend 'Deny'.")
@@ -209,7 +241,8 @@ def verdict(number):
         denybutton()
         return
     elif number == 2 and totalriskscore > 90:
-        print("[!] Soft fail. Recommend 'Deny' based on Risk Score being higher than 90.")
+        print(
+            "[!] Soft fail. Recommend 'Deny' based on Risk Score being higher than 90.")
         denybutton()
         return
     elif number == 1:
@@ -224,6 +257,8 @@ def verdict(number):
         approvebutton()
 
 # Keeps track of how long the program has been running
+
+
 def updatetime():
     global timestarted
     global timestartedformated
@@ -235,21 +270,24 @@ def updatetime():
     print('[*] Program started: ' + timestartedformated)
     print('[*] Total Run Time: ' + str(totaltime))
 
-cur_directory = os.getcwd();
-driver = webdriver.Chrome(cur_directory+"\\chromedriver_win32\\chromedriver.exe")
+
+cur_directory = os.getcwd()
+driver = webdriver.Chrome(
+    cur_directory+"\\chromedriver_win32\\chromedriver.exe")
 
 # Starts up the IZ website, and then logs in
 print('[*] Navigating to the startup page...')
 startupURL = "https://www.internetzoo.dk/auth/login"
 driver.get(startupURL)
-driver.find_element_by_id("email").send_keys("INSERT EMAIL")
-driver.find_element_by_id("password").send_keys("INSERT PASSWORD")
+driver.find_element_by_id("email").send_keys("steventeglman@gmail.com")
+driver.find_element_by_id("password").send_keys("123123123")
 time.sleep(1)
 print('[*] Logging in...')
-driver.find_element_by_xpath("//button[@type='submit' and @class='btn btn-primary']").click()
+driver.find_element_by_xpath(
+    "//button[@type='submit' and @class='btn btn-primary']").click()
 time.sleep(1)
 
-print('[*] Finding the Range...' )
+print('[*] Finding the Range...')
 driver.get(navigatetoscrubbingwindow())
 
 print('[*] Starting Scrub...')
@@ -270,7 +308,7 @@ while running:
     verdict(failnumber)
     print('\n')
     # Uncomment to manually approve or deny customers.
-    #userinput()
+    # userinput()
     customersscrubbed = customersscrubbed + 1
     updatetime()
     print('[*] Customers scrubbed: ' + str(customersscrubbed))
@@ -283,4 +321,3 @@ while running:
     # TODO Save scrubbing session data (times, etc) into log files.
     # TODO Look into the "summary of risks" section
     # TODO Log all approves and declines with the reason and customer ID
-

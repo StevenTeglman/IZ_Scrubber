@@ -10,6 +10,7 @@ data = {}
 with open('errors.json') as json_file:
     data = json.load(json_file)
 
+
 def analyzestatus(validationdic):
     status = 0
 
@@ -39,6 +40,7 @@ def analyzestatus(validationdic):
 def issuerhealth(validationdic):
     pass
 
+
 def creditcardhealth(validationdic):
     # TODO Add better logic to this so that it can actually read the days, as 30 days makes the box red, even though
     #  it shouldn't
@@ -50,8 +52,10 @@ def creditcardhealth(validationdic):
         print('[!] CC HEALTH IS QUESTIONABLE!')
     return status
 
+
 def completionspeed(validationdic):
     pass
+
 
 def prepaidcard(validationdic):
     status = 0
@@ -62,8 +66,10 @@ def prepaidcard(validationdic):
         print('[!] CC IS PREPAID!: %s' % boxmessage)
     return status
 
+
 def refundcheck(validationdic):
     pass
+
 
 def subscriptionstatus(validationdic):
     status = 0
@@ -81,6 +87,7 @@ def subscriptionstatus(validationdic):
             status = 0
     return status
 
+
 def geocheck(validationdic):
     status = 0
     boxstatus = validationdic['geocheck']['Status']
@@ -90,6 +97,7 @@ def geocheck(validationdic):
         return 3
 
     return status
+
 
 def ipblocklistcheck(validationdic):
     status = 0

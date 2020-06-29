@@ -16,9 +16,9 @@
     "Last error was '(900.100.400) timeout at connectors'",
     "Last error was '(900.950.400.644) Fraud: Credit card stolen'",
     "Last error was '(800.100.151) transaction declined (invalid card)'",
-	"Last error was '(800.500.110) Unable to process transaction - ran out of terminalIds - please contact acquirer'",
-	"Last error was '(900.100.203) error on the internal gateway'",
-	"Last error was '(800.100.157) transaction declined (wrong expiry date)'",
+    "Last error was '(800.500.110) Unable to process transaction - ran out of terminalIds - please contact acquirer'",
+    "Last error was '(900.100.203) error on the internal gateway'",
+    "Last error was '(800.100.157) transaction declined (wrong expiry date)'",
     "(Creditcard no longer valid)"
   ],
   "softfails": [
@@ -27,7 +27,7 @@
     "Last error was '(800.100.155) transaction declined (amount exceeds credit)'",
     "Last error was '(800.100.152) transaction declined by authorization system'",
     "Last error was '(900.900.500.441) Insufficient funds'",
-	"Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit.'"
+    "Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit.'"
   ],
   "prepaid": [
     "PREPAID",
