@@ -24,7 +24,6 @@ timescrubbed = now.strftime("%H:%M:%S")
 
 # Updates the current risk score for the selected customer
 
-
 def updateriskscore():
     global totalriskscore
     try:
