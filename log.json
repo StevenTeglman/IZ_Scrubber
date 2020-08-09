@@ -1,0 +1,515 @@
+{
+  "09/08/2020": {
+    "10692508": {
+      "risk_score": 35,
+      "issuer_health": {
+        "message": "+10 successes, +20 soft failures",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1422 days (07/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 145s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Unsubscribed at 2020-08-04 (Via helpcenter).",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Great Britain (concept) vs UNITED KINGDOM (bank) vs United Kingdom of Great Britain and Northern Ireland (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693478": {
+      "risk_score": 10,
+      "issuer_health": { "message": "+10 awaiting retry", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1757 days (06/2025).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 199s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, PLATINUM, DEBIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Singapore (concept) vs SINGAPORE (bank) vs Singapore (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693517": {
+      "risk_score": 40,
+      "issuer_health": { "message": "+10 trial", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1910 days (11/2025).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 188s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, STANDARD, DEBIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.155) transaction declined (amount exceeds credit)'. Chance of revival is 32.85%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Not enough information to deny, so recommend approving."
+    },
+    "10693531": {
+      "risk_score": 70,
+      "issuer_health": {
+        "message": "+10 trial, +10 active, +20 unsubscribed",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1026 days (06/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 231s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, MIXED PRODUCT, CREDIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.168) transaction declined (restricted card)'. Chance of revival is 12.47%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Fradulant card detected. Recommend 'Deny' and Quarantine."
+    },
+    "10693535": {
+      "risk_score": 10,
+      "issuer_health": { "message": "+10 trial", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 906 days (02/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 244s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, WORLD ELITE, CREDIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693672": {
+      "risk_score": 40,
+      "issuer_health": { "message": "+10 active", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 84 days (11/2020).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 104s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.152) transaction declined by authorization system'. Chance of revival is 18.28%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "New Zealand (concept) vs NEW ZEALAND (bank) vs New Zealand (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Not enough information to deny, so recommend approving."
+    },
+    "10693685": {
+      "risk_score": 10,
+      "issuer_health": { "message": "+10 trial", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 326 days (07/2021).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 222s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693756": {
+      "risk_score": 20,
+      "issuer_health": { "message": "+10 trial, +10 active", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1271 days (02/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 480s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, CREDIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Germany (concept) vs GERMANY (bank) vs Germany (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693764": {
+      "risk_score": 15,
+      "issuer_health": { "message": "+10 trial", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1209 days (12/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 361s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Unsubscribed at 2020-08-06 (Via helpcenter).",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693769": {
+      "risk_score": 30,
+      "issuer_health": {
+        "message": "+10 active, +20 unsubscribed",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1300 days (03/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 1048s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, PLATINUM, CREDIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Spain (concept) vs SPAIN (bank) vs Spain (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693821": {
+      "risk_score": 50,
+      "issuer_health": {
+        "message": "+30 hard failures, +20 unsubscribed",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 875 days (01/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 126s.", "status": true },
+      "prepaid_card": { "message": "VISA, BUSINESS, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Australia (concept) vs AUSTRALIA (bank) vs Australia (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693869": {
+      "risk_score": 40,
+      "issuer_health": {
+        "message": "+10 trial, +10 active, +20 unsubscribed",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 600 days (04/2022).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 516s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, MIXED PRODUCT, CREDIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693872": {
+      "risk_score": 40,
+      "issuer_health": {
+        "message": "No issuer checks triggered.",
+        "status": true
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1118 days (09/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 91s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": {
+        "message": "2 refund(s) found (#31797, #31819).",
+        "status": false
+      },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.152) transaction declined by authorization system'. Chance of revival is 18.28%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Not enough information to deny, so recommend approving."
+    },
+    "10693918": {
+      "risk_score": 20,
+      "issuer_health": { "message": "+10 trial, +10 active", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1271 days (02/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 71s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Australia (concept) vs AUSTRALIA (bank) vs Australia (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693919": {
+      "risk_score": 15,
+      "issuer_health": {
+        "message": "No issuer checks triggered.",
+        "status": true
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 965 days (04/2023).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 37s.", "status": false },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Unsubscribed at 2020-08-03 (Via e-mail).",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693920": {
+      "risk_score": 80,
+      "issuer_health": {
+        "message": "+10 successes, +20 soft failures, +10 trial, +10 active, +10 awaiting retry, +20 struck out",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1422 days (07/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 105s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Active and paying.",
+        "status": true
+      },
+      "geo_check": {
+        "message": "Australia (concept) vs AUSTRALIA (bank) vs Australia (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "10693942": {
+      "risk_score": 70,
+      "issuer_health": {
+        "message": "+10 successes, +20 soft failures",
+        "status": false
+      },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 1361 days (05/2024).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 231s.", "status": true },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": {
+        "message": "1 refund(s) found (#24394).",
+        "status": false
+      },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.152) transaction declined by authorization system'. Chance of revival is 18.28%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Great Britain (concept) vs UNITED KINGDOM (bank) vs United Kingdom of Great Britain and Northern Ireland (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Not enough information to deny, so recommend approving."
+    },
+    "10694004": {
+      "risk_score": 50,
+      "issuer_health": { "message": "+20 unsubscribed", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 388 days (09/2021).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 227s.", "status": true },
+      "prepaid_card": {
+        "message": "MASTERCARD, WORLD, CREDIT",
+        "status": true
+      },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Needs renewal. Last error was '(800.100.152) transaction declined by authorization system'. Chance of revival is 18.28%",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Canada (concept) vs CANADA (bank) vs Canada (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] Not enough information to deny, so recommend approving."
+    },
+    "10694008": {
+      "risk_score": 35,
+      "issuer_health": { "message": "+20 struck out", "status": false },
+      "credit_card_health": {
+        "message": "Latest risk score is 0, card expires in 600 days (04/2022).",
+        "status": true
+      },
+      "completion_speed": { "message": "Completed in 54s.", "status": false },
+      "prepaid_card": { "message": "VISA, CLASSIC, DEBIT", "status": true },
+      "refund_check": { "message": "No refunds found", "status": true },
+      "subscription_status": {
+        "message": "Unsubscribed at 2020-08-03 (Via e-mail).",
+        "status": false
+      },
+      "geo_check": {
+        "message": "Great Britain (concept) vs UNITED KINGDOM (bank) vs United Kingdom of Great Britain and Northern Ireland (ip)",
+        "status": true
+      },
+      "ip_block_list": {
+        "message": "Nothing incriminating found on this IP.",
+        "status": true
+      },
+      "verdict": "[!] No problems found, recommend accepting."
+    },
+    "customers_scrubbed": 3
+  }
+}

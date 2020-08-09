@@ -2,6 +2,7 @@ import os
 import sys
 import json
 
+import selenium
 from selenium import webdriver
 import time
 from datetime import datetime, timedelta
@@ -24,6 +25,7 @@ timescrubbed = now.strftime("%H:%M:%S")
 
 # Updates the current risk score for the selected customer
 
+
 def updateriskscore():
     global totalriskscore
     try:
@@ -44,7 +46,8 @@ def updateriskscore():
 
 def navigatetoscrubbingwindow():
     # Find current month
-    fda = timedelta(days=5)
+    fda = timedelta(days=4)
+    # FIX ME Change back day from 4 to 5
     today = datetime.today()
     first = today.replace(day=1)
     lastMonth = first - timedelta(days=1)
@@ -246,32 +249,26 @@ def userinput():
 
 def verdict(number):
     if number == 4:
-        print("[!] Fradulant card detected. Recommend 'Deny' and Quarantine.")
         quarantinebutton()
-        return
+        return("[!] Fradulant card detected. Recommend 'Deny' and Quarantine.")
     elif totalriskscore >= 110:
-        print("[!] Hard fail based on risk score. Recommend 'Deny'.")
         denybutton()
-        return
+        return("[!] Hard fail based on risk score. Recommend 'Deny'.")
     elif number == 3:
-        print("[!] Hard fail. Recommend 'Deny'.")
         denybutton()
-        return
+        return("[!] Hard fail. Recommend 'Deny'.")
     elif number == 2 and totalriskscore > 90:
-        print(
-            "[!] Soft fail. Recommend 'Deny' based on Risk Score being higher than 90.")
         denybutton()
-        return
+        return("[!] Soft fail. Recommend 'Deny' based on Risk Score being higher than 90.")
     elif number == 1:
-        print("[!] Unsure... Skipping so a human and decide :) ")
         skipbutton()
-        return
+        return("[!] Unsure... Skipping so a human and decide :) ")
     elif number == 0:
-        print("[!] No problems found, recommend accepting.")
         approvebutton()
+        return("[!] No problems found, recommend accepting.")
     else:
-        print("[!] Not enough information to deny, so recommend approving.")
         approvebutton()
+        return("[!] Not enough information to deny, so recommend approving.")
 
 # Keeps track of how long the program has been running
 
@@ -310,31 +307,99 @@ driver.get(navigatetoscrubbingwindow())
 print('[*] Starting Scrub...')
 driver.find_element_by_xpath("//*[@id='master-content']/div[1]/div/a").click()
 
+# Prepares the dictionary log
+now_date = now.strftime("%d/%m/%Y")
+
+log = {
+    now_date: {}
+}
+
 # Runs the program indefinitely until it runs out of customers to scrub. At which point, it will throw an exception.
 # This should obviously be put in a try/catch block for a more elegant solution, yet for now it works.
+i = 0
 while running:
 
-    validationboxescheck()
-    print(tabulate(validationboxeslist, headers=validationtable, tablefmt='psql'))
-    updateriskscore()
+    try:
+        validationboxescheck()
+        print(tabulate(validationboxeslist, headers=validationtable, tablefmt='psql'))
+        updateriskscore()
 
-    # helpers.analyzestatus runs looks at all of the messages retrieved from the 'validationdic' and searches to see
-    # if there are any matches in the 'errors.json' file, to see if any messages correspond with any of the errors in
-    # that list
-    failnumber = helpers.analyzestatus(validationdic)
-    verdict(failnumber)
-    print('\n')
-    # Uncomment to manually approve or deny customers.
-    # userinput()
-    customersscrubbed = customersscrubbed + 1
-    updatetime()
-    print('[*] Customers scrubbed: ' + str(customersscrubbed))
-    print('\n')
+        # helpers.analyzestatus runs looks at all of the messages retrieved from the 'validationdic' and searches to see
+        # if there are any matches in the 'errors.json' file, to see if any messages correspond with any of the errors in
+        # that list
+        failnumber = helpers.analyzestatus(validationdic)
+        verdict_txt = verdict(failnumber)
+        print(verdict_txt)
+        print('\n')
+        # Uncomment to manually approve or deny customers.
+        # userinput()
+        customersscrubbed = customersscrubbed + 1
+        updatetime()
+        print('[*] Customers scrubbed: ' + str(customersscrubbed))
+        print('\n')
+        log[now_date].update({
+            validationboxeslist[0][1]: {
+                "risk_score": totalriskscore,
+                "issuer_health": {
+                    "message": validationdic["issuerhealth"]["Message"],
+                    "status": validationdic["issuerhealth"]["Status"]
+                },
+                "credit_card_health": {
+                    "message": validationdic["creditcardhealth"]["Message"],
+                    "status": validationdic["creditcardhealth"]["Status"]
+                },
+                "completion_speed": {
+                    "message": validationdic["completionspeed"]["Message"],
+                    "status": validationdic["completionspeed"]["Status"]
+                },
+                "prepaid_card": {
+                    "message": validationdic["prepaidcard"]["Message"],
+                    "status": validationdic["prepaidcard"]["Status"]
+                },
+                "refund_check": {
+                    "message": validationdic["refundcheck"]["Message"],
+                    "status": validationdic["refundcheck"]["Status"]
+                },
+                "subscription_status": {
+                    "message": validationdic["subscriptionstatus"]["Message"],
+                    "status": validationdic["subscriptionstatus"]["Status"]
+                },
+                "geo_check": {
+                    "message": validationdic["geocheck"]["Message"],
+                    "status": validationdic["geocheck"]["Status"]
+                },
+                "ip_block_list": {
+                    "message": validationdic["ipblocklistcheck"]["Message"],
+                    "status": validationdic["ipblocklistcheck"]["Status"]
+                },
+                "verdict": verdict_txt
+            }
+        })
 
-    # TODO rename everything to use snake case (eg. with underscores between words) as apparently that's Python syntax
-    # TODO Enable the quarentine check boxes?
-    # TODO Make something for when the program ends. Like a final statistics box or something.
-    # TODO Create a timer and Scrub counter
-    # TODO Save scrubbing session data (times, etc) into log files.
-    # TODO Look into the "summary of risks" section
-    # TODO Log all approves and declines with the reason and customer ID
+    except:
+        print('/n')
+        print('[!] Finished scrubbing!')
+        print('[*] Loading log.json...')
+        with open("log.json", "r+") as file:
+            data = json.load(file)
+            data[now_date].update(log[now_date])
+            if "customers_scrubbed" not in data[now_date]:
+                data[now_date].update(
+                    {"customers_scrubbed": customersscrubbed})
+            else:
+                data[now_date].update(
+                    {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
+            file.seek(0)
+            json.dump(data, file)
+
+        print('[*] TOTAL Customers scrubbed: ' + str(customersscrubbed))
+        break
+
+
+# TODO rename everything to use snake case (eg. with underscores between words) as apparently that's Python syntax
+# TODO Enable the quarentine check boxes?
+# TODO Make something for when the program ends. Like a final statistics box or something.
+# TODO Create a timer and Scrub counter
+# TODO Save scrubbing session data (times, etc) into log files.
+# TODO Look into the "summary of risks" section
+# TODO Log all approves and declines with the reason and customer ID
