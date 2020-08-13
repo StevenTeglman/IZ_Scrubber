@@ -382,13 +382,22 @@ while running:
         print('[*] Loading log.json...')
         with open("log.json", "r+") as file:
             data = json.load(file)
-            data[now_date].update(log[now_date])
-            if "customers_scrubbed" not in data[now_date]:
-                data[now_date].update(
-                    {"customers_scrubbed": customersscrubbed})
+            if now_date in data:
+                data[now_date].update(log[now_date])
+                if "customers_scrubbed" not in data[now_date]:
+                    data[now_date].update(
+                        {"customers_scrubbed": customersscrubbed})
+                else:
+                    data[now_date].update(
+                        {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
             else:
-                data[now_date].update(
-                    {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
+                data.update(log)
+                if "customers_scrubbed" not in data[now_date]:
+                    data[now_date].update(
+                        {"customers_scrubbed": customersscrubbed})
+                else:
+                    data[now_date].update(
+                        {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
             file.seek(0)
             json.dump(data, file)
 
