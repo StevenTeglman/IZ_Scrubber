@@ -22,6 +22,16 @@ now = datetime.now()
 timestarted = now
 timestartedformated = now.strftime("%H:%M:%S")
 timescrubbed = now.strftime("%H:%M:%S")
+prepay_concepts = [
+    'Minatoreditrofei.it',
+    'Giardinoinfestato.it',
+    'MortyCurioso.it',
+    'LoveAwaits.ch',
+    'MoneyGrubber.ch',
+    'BushidoBoy.ch',
+    'Liebedating.com',
+    'JungeBushido.at'
+]
 
 # Updates the current risk score for the selected customer
 
@@ -46,17 +56,16 @@ def updateriskscore():
 
 def navigatetoscrubbingwindow():
     # Find current month
-    fda = timedelta(days=4)
-    # FIX ME Change back day from 4 to 5
+    fda = timedelta(days=5)
     today = datetime.today()
     first = today.replace(day=1)
     lastMonth = first - timedelta(days=1)
     todayrange = today - fda
     datem = str(datetime(todayrange.year, lastMonth.month, 1))
     curmonth = datem[0:10]
-    print("[?] Current month: %r" % (curmonth))
     # If you wanna put in a certain date:
-    # curmonth = "2020-05-31"
+    # curmonth = "2020-09-26"
+    print("[?] Current month: %r" % (curmonth))
 
     # Find date five days ago
     fivedaysagodate = str(today - fda)
@@ -65,9 +74,18 @@ def navigatetoscrubbingwindow():
     # If you wanna put in a certain date:
     # fivedaysagodate = "2020-05-31"
 
+    # curmonth = fivedaysagodate
+
     filterURL = "https://www.internetzoo.dk/support/members/signup-screening?email=&name=&partner=&microsite=&bin=&last_4_digits=&address=&date_from=%s&date_to=%s&concept=&screening_status=pending&sortby=id-asc" % (
         curmonth, fivedaysagodate)
     return filterURL
+
+
+def prepaycheck(concept):
+    if concept in prepay_concepts:
+        return True
+    else:
+        return False
 
 # Goes through each of the 8 validation boxes, takes the data from each one, and inputs it into two dictionaries:
 # 'validationboxeslist' is only used to later give a visual representation in the console of the status of each validation box
@@ -80,6 +98,13 @@ def validationboxescheck():
     global validationboxeslist
     validationboxeslist = []
     validationdic = {}
+
+    concept = driver.find_element_by_xpath(
+        "//*[@id='master-content']/table/tbody/tr[2]/td[5]/text()")
+    validationboxeslist.append(["Prepay Allowed?", concept.text])
+    status = prepaycheck(concept.text)
+    validationdic.update(
+        {'prepay_allowed': {'Status': status, 'Message': concept.text}})
 
     customerID = driver.find_element_by_xpath(
         "//*[@id='master-content']/table/tbody/tr[2]/td[1]/a")
@@ -328,6 +353,7 @@ while running:
         # if there are any matches in the 'errors.json' file, to see if any messages correspond with any of the errors in
         # that list
         failnumber = helpers.analyzestatus(validationdic)
+        # TODO create a thing to check the country of origin
         verdict_txt = verdict(failnumber)
         print(verdict_txt)
         print('\n')
@@ -379,27 +405,27 @@ while running:
     except:
         print('/n')
         print('[!] Finished scrubbing!')
-        print('[*] Loading log.json...')
-        with open("log.json", "r+") as file:
-            data = json.load(file)
-            if now_date in data:
-                data[now_date].update(log[now_date])
-                if "customers_scrubbed" not in data[now_date]:
-                    data[now_date].update(
-                        {"customers_scrubbed": customersscrubbed})
-                else:
-                    data[now_date].update(
-                        {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
-            else:
-                data.update(log)
-                if "customers_scrubbed" not in data[now_date]:
-                    data[now_date].update(
-                        {"customers_scrubbed": customersscrubbed})
-                else:
-                    data[now_date].update(
-                        {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
-            file.seek(0)
-            json.dump(data, file)
+        # print('[*] Loading log.json...')
+        # with open("log.json", "r+") as file:
+        #     data = json.load(file)
+        #     if now_date in data:
+        #         data[now_date].update(log[now_date])
+        #         if "customers_scrubbed" not in data[now_date]:
+        #             data[now_date].update(
+        #                 {"customers_scrubbed": customersscrubbed})
+        #         else:
+        #             data[now_date].update(
+        #                 {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
+        #     else:
+        #         data.update(log)
+        #         if "customers_scrubbed" not in data[now_date]:
+        #             data[now_date].update(
+        #                 {"customers_scrubbed": customersscrubbed})
+        #         else:
+        #             data[now_date].update(
+        #                 {"customers_scrubbed": data[now_date]["customers_scrubbed"] + customersscrubbed})
+        #     file.seek(0)
+        #     json.dump(data, file)
 
         print('[*] TOTAL Customers scrubbed: ' + str(customersscrubbed))
         break

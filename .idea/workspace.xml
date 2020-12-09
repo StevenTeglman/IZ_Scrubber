@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cd0d5c2c-c91d-4eea-a9e8-2c2362073730" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chromedriver_win32/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/chromedriver_win32/chromedriver.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errors.json" beforeDir="false" afterPath="$PROJECT_DIR$/errors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iz_scrubber.py" beforeDir="false" afterPath="$PROJECT_DIR$/iz_scrubber.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.json" beforeDir="false" afterPath="$PROJECT_DIR$/log.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,6 +118,14 @@
       <workItem from="1590498183359" duration="34000" />
       <workItem from="1594727538678" duration="930000" />
       <workItem from="1594814787957" duration="434000" />
+      <workItem from="1599464382851" duration="1220000" />
+      <workItem from="1599751594288" duration="87000" />
+      <workItem from="1600067883484" duration="708000" />
+      <workItem from="1600688485896" duration="837000" />
+      <workItem from="1601407724619" duration="841000" />
+      <workItem from="1601474912200" duration="718000" />
+      <workItem from="1601476118685" duration="14000" />
+      <workItem from="1601894023503" duration="975000" />
     </task>
     <servers />
   </component>

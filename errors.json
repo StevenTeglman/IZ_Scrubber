@@ -8,7 +8,8 @@
     "Last error was '(800.100.168) transaction declined (restricted card)'",
     "Last error was '(900.950.400.644) Fraud: Credit card stolen'",
     "Last error was '(800.100.157) transaction declined (wrong expiry date)'",
-    "(Creditcard no longer valid)"
+    "(Creditcard no longer valid)",
+    "Last error was '(800.100.160) transaction declined (card blocked)'."
   ],
   "hardfails": [
     "Last error was '(800.100.165) transaction declined (card lost)'",
@@ -30,7 +31,9 @@
     "Last error was '(800.500.110) Unable to process transaction - ran out of terminalIds - please contact acquirer'",
     "Last error was '(900.100.203) error on the internal gateway'",
     "Last error was '(800.100.157) transaction declined (wrong expiry date)'",
-    "(Creditcard no longer valid)"
+    "(Creditcard no longer valid)",
+    "Last error was '(800.100.160) transaction declined (card blocked)'",
+    "Last error was '(800.100.154) transaction declined (transaction marked as invalid)'"
   ],
   "softfails": [
     "Last error was '(insufficient_funds) The charge amount exceeds the available funds or the card's credit limit'",

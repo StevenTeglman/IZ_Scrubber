@@ -62,7 +62,10 @@ def prepaidcard(validationdic):
     status = 0
     boxstatus = validationdic['prepaidcard']['Status']
     boxmessage = validationdic['prepaidcard']['Message']
-    if not boxstatus:
+    prepay_allowed = validationdic['prepay_allowed']['Status']
+    if prepay_allowed:
+        print('I guess it works')
+    if not boxstatus and not prepay_allowed:
         status = 3
         print('[!] CC IS PREPAID!: %s' % boxmessage)
     return status
@@ -108,6 +111,6 @@ def ipblocklistcheck(validationdic):
     boxstatus = validationdic['ipblocklistcheck']['Status']
     boxmessage = validationdic['ipblocklistcheck']['Message']
     if not boxstatus:
-        status = 1
+        status = 3
         print('[!] IP BLOCKLIST CHECK FAILED!: %s' % boxmessage)
     return status
